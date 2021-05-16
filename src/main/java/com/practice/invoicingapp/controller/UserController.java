@@ -1,10 +1,13 @@
 package com.practice.invoicingapp.controller;
 
+import com.practice.invoicingapp.entities.Invoice;
 import com.practice.invoicingapp.entities.User;
 import com.practice.invoicingapp.service.UserService;
 import com.practice.invoicingapp.service.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RestController
 public class UserController {
@@ -29,5 +32,8 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-
+    @GetMapping("/getInvoice/{email}")
+    public Set<Invoice>  getAllUserInvoice(@PathVariable String email){
+        return userService.getAllUserInvoice(email);
+    }
 }

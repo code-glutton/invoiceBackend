@@ -2,12 +2,15 @@ package com.practice.invoicingapp.service;
 
 import com.practice.invoicingapp.config.UserExists;
 import com.practice.invoicingapp.config.UserNotFound;
+import com.practice.invoicingapp.entities.Invoice;
 import com.practice.invoicingapp.entities.User;
 import com.practice.invoicingapp.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -53,5 +56,22 @@ public class UserServiceImpl implements UserService {
             }
         }
 
+    }
+
+    @Override
+    public Set<Invoice> getAllUserInvoice(String email) {
+        List<User> users = userRepository.findAll();
+        Set<Invoice> invoices = new HashSet<>();
+        for (User person: users
+        ) {
+            if(person.getEmail().equalsIgnoreCase(email)){
+                Set<Invoice> userInvoice;
+                User invoiceUser = person;
+                userInvoice = invoiceUser.getInvoices();
+                invoices = userInvoice;
+            }
+        }
+        System.out.println(invoices);
+        return invoices;
     }
 }
