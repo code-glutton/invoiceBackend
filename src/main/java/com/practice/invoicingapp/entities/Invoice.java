@@ -9,7 +9,7 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long invoiceId;
+
     @ManyToOne
     private User owner;
 
@@ -27,13 +27,6 @@ public class Invoice {
         this.id = id;
     }
 
-    public Long getInvoiceId() {
-        return invoiceId;
-    }
-
-    public void setInvoiceId(Long invoiceId) {
-        this.invoiceId = invoiceId;
-    }
 
     public User getOwner() {
         return owner;
