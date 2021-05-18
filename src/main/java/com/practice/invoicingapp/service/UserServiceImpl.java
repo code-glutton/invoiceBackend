@@ -2,6 +2,7 @@ package com.practice.invoicingapp.service;
 
 import com.practice.invoicingapp.config.UserExists;
 import com.practice.invoicingapp.config.UserNotFound;
+import com.practice.invoicingapp.entities.Customer;
 import com.practice.invoicingapp.entities.Invoice;
 import com.practice.invoicingapp.entities.User;
 import com.practice.invoicingapp.repository.UserRepository;
@@ -73,5 +74,22 @@ public class UserServiceImpl implements UserService {
         }
         System.out.println(invoices);
         return invoices;
+    }
+
+    @Override
+    public Set<Customer> getAllCustomers(String email) {
+        List<User> users = userRepository.findAll();
+        Set<Customer> customers = new HashSet<>();
+        for (User person: users
+        ) {
+            if(person.getEmail().equalsIgnoreCase(email)){
+                Set<Customer> userCustomer;
+                User customerUser = person;
+                userCustomer = customerUser.getCustomers();
+                customers = userCustomer;
+            }
+        }
+        System.out.println(customers);
+        return customers;
     }
 }

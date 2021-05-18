@@ -21,6 +21,14 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Invoice> invoices;
 
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Customer> customers;
 
