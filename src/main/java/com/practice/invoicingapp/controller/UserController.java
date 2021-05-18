@@ -1,5 +1,6 @@
 package com.practice.invoicingapp.controller;
 
+import com.practice.invoicingapp.entities.Customer;
 import com.practice.invoicingapp.entities.Invoice;
 import com.practice.invoicingapp.entities.User;
 import com.practice.invoicingapp.service.UserService;
@@ -35,5 +36,10 @@ public class UserController {
     @GetMapping("/getInvoice/{email}")
     public Set<Invoice>  getAllUserInvoice(@PathVariable String email){
         return userService.getAllUserInvoice(email);
+    }
+
+    @PostMapping("/add/customer")
+    public Customer createNewCustomer(@RequestBody Customer customer){
+        return null;
     }
 }
