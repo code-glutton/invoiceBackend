@@ -21,6 +21,11 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Invoice> invoices;
 
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private Set<Customer> customers;
+
+
     public Set<Customer> getCustomers() {
         return customers;
     }
@@ -29,8 +34,6 @@ public class User {
         this.customers = customers;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private Set<Customer> customers;
 
     public Long getId() {
         return id;
