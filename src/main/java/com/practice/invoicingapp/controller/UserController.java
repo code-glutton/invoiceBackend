@@ -38,8 +38,8 @@ public class UserController {
         return userService.getAllUserInvoice(email);
     }
 
-    @PostMapping("/add/customer")
-    public Customer createNewCustomer(@RequestBody Customer customer){
-        return null;
+    @GetMapping("/add/customer/{email}")
+    public Set<Customer> getEveryCustomer(@PathVariable String email){
+        return userService.getAllCustomers(email);
     }
 }
