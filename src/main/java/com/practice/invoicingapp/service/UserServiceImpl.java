@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         List<User> users = userRepository.findAll();
         for (User person: users
              ) {
-            if(person.getEmail().equalsIgnoreCase(user.getEmail())){
+            if(person.getUsername().equalsIgnoreCase(user.getUsername())){
                 throw new UserExists("email exists");
             }
         }
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
         Long userId;
         for (User person: users
         ) {
-            if(person.getEmail().equalsIgnoreCase(email)){
+            if(person.getUsername().equalsIgnoreCase(email)){
                 User deleteUser = person;
                 userId = deleteUser.getId();
                 userRepository.deleteById(userId);
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         Set<Invoice> invoices = new HashSet<>();
         for (User person: users
         ) {
-            if(person.getEmail().equalsIgnoreCase(email)){
+            if(person.getUsername().equalsIgnoreCase(email)){
                 Set<Invoice> userInvoice;
                 User invoiceUser = person;
                 userInvoice = invoiceUser.getInvoices();
@@ -82,7 +82,7 @@ public class UserServiceImpl implements UserService {
         Set<Customer> customers = new HashSet<>();
         for (User person: users
         ) {
-            if(person.getEmail().equalsIgnoreCase(email)){
+            if(person.getUsername().equalsIgnoreCase(email)){
                 Set<Customer> userCustomer;
                 User customerUser = person;
                 userCustomer = customerUser.getCustomers();

@@ -20,31 +20,30 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    @PreAuthorize("hasAnyRole('ROLE_STUDENT','ROLE_ADMIN')")
     public User newUser(@RequestBody User user){
         return userService.createNewUser(user);
     }
 
     @DeleteMapping("/delete/{email}")
-    @PreAuthorize("hasAnyRole('ROLE_STUDENT','ROLE_ADMIN')")
+
     public void deletedUser(@PathVariable String email){
         userService.deleteUser(email);
     }
 
     @GetMapping("/userDetail/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_STUDENT','ROLE_ADMIN')")
+
     public User getUserCont(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
     @GetMapping("/getInvoice/{email}")
-    @PreAuthorize("hasAnyRole('ROLE_STUDENT','ROLE_ADMIN')")
+
     public Set<Invoice>  getAllUserInvoice(@PathVariable String email){
         return userService.getAllUserInvoice(email);
     }
 
     @GetMapping("/add/customer/{email}")
-    @PreAuthorize("hasRole('ROLE_STUDENT')")
+
     public Set<Customer> getEveryCustomer(@PathVariable String email){
         return userService.getAllCustomers(email);
     }
