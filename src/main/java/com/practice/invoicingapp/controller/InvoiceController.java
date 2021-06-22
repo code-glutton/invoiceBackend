@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
 public class InvoiceController {
     private final InvoiceService invoiceService;
 
@@ -18,13 +17,11 @@ public class InvoiceController {
     }
 
     @PostMapping("/invoice/create")
-    @PreAuthorize("hasRole('ROLE_STUDENT')")
     public Invoice createInvoiceCont(@RequestBody Invoice invoice){
         return invoiceService.createInvoice(invoice);
     }
 
     @DeleteMapping("/invoice/delete/{id}")
-    @PreAuthorize("hasRole('ROLE_STUDENT')")
     public void deleteInvoiceCont(@PathVariable Long id){
         invoiceService.deleteInvoice(id);
     }

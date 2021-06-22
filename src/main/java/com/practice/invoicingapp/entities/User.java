@@ -14,7 +14,7 @@ public class User {
 
     private String firstname;
     private String lastName;
-    private String username;
+    private String email;
     private String password;
 
     @JsonIgnore
@@ -59,12 +59,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

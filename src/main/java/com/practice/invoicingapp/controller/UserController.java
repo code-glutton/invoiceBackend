@@ -25,25 +25,21 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{email}")
-
     public void deletedUser(@PathVariable String email){
         userService.deleteUser(email);
     }
 
     @GetMapping("/userDetail/{id}")
-
     public User getUserCont(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
     @GetMapping("/getInvoice/{email}")
-
     public Set<Invoice>  getAllUserInvoice(@PathVariable String email){
         return userService.getAllUserInvoice(email);
     }
 
     @GetMapping("/add/customer/{email}")
-
     public Set<Customer> getEveryCustomer(@PathVariable String email){
         return userService.getAllCustomers(email);
     }
