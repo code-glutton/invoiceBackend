@@ -16,6 +16,8 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private String roles;
+    private Boolean active;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
@@ -73,6 +75,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public Set<Invoice> getInvoices() {

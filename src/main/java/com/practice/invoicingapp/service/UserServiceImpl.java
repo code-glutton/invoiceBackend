@@ -33,6 +33,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<User> getUserByEmail(String email) {
+        List<User> users = userRepository.findAll();
+        Optional<User> user = Optional.empty();
+        for (User person: users
+        ) {
+            if(person.getEmail().equalsIgnoreCase(email)){
+                 user.of(person);
+            }
+        }
+        return user;
+    }
+
+    @Override
     public User createNewUser(User user) {
         List<User> users = userRepository.findAll();
         for (User person: users

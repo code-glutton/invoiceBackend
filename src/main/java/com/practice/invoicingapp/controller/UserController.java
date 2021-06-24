@@ -19,6 +19,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    public String testApi(){
+        return "<h1>hello</h1>";
+    }
+
     @PostMapping("/signup")
     public User newUser(@RequestBody User user){
         return userService.createNewUser(user);
