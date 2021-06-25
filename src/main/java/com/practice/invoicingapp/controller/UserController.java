@@ -6,9 +6,10 @@ import com.practice.invoicingapp.entities.User;
 import com.practice.invoicingapp.service.UserService;
 import com.practice.invoicingapp.service.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -19,9 +20,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String testApi(){
-        return "<h1>hello</h1>";
+    @GetMapping("/getByEmail/{email}")
+    public void testApi(@PathVariable String email){
+        Optional<User> user = userService.getUserByEmail(email);
+        System.out.println(user.get());
     }
 
     @PostMapping("/signup")

@@ -4,7 +4,7 @@ package com.practice.invoicingapp.controller;
 import com.practice.invoicingapp.entities.Invoice;
 import com.practice.invoicingapp.service.InvoiceService;
 import com.practice.invoicingapp.service.InvoiceServiceImpl;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

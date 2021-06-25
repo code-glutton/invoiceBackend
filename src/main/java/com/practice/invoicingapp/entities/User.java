@@ -14,6 +14,7 @@ public class User {
 
     private String firstname;
     private String lastName;
+
     private String email;
     private String password;
     private String roles;
@@ -99,5 +100,20 @@ public class User {
 
     public void setInvoices(Set<Invoice> invoices) {
         this.invoices = invoices;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles='" + roles + '\'' +
+                ", active=" + active +
+                ", invoices=" + invoices +
+                ", customers=" + customers +
+                '}';
     }
 }

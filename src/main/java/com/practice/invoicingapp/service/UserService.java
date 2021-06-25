@@ -15,5 +15,5 @@ public interface UserService {
     public void deleteUser(String email);
     public Set<Invoice> getAllUserInvoice(String email);
     public Set<Customer> getAllCustomers(String email);
-    Optional<User> getUserByEmail(String email);
+    Optional <User> getUserByEmail(String email);
 }
