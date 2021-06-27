@@ -6,7 +6,6 @@ import com.practice.invoicingapp.entities.User;
 import com.practice.invoicingapp.service.UserService;
 import com.practice.invoicingapp.service.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -21,9 +20,10 @@ public class UserController {
     }
 
     @GetMapping("/getByEmail/{email}")
-    public void testApi(@PathVariable String email){
+    public String testApi(@PathVariable String email){
         Optional<User> user = userService.getUserByEmail(email);
         System.out.println(user.get());
+        return "<h1>successful</h1>";
     }
 
     @PostMapping("/signup")
